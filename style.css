@@ -85,32 +85,45 @@
 }
 
 body{
-    background-color: #F5F5F5;
+    background-color: #ffffff;
     display: grid;
     font-size: 1rem;
     line-height: 1.5rem;
     height: 100vh;
-    overflow: hidden;
 }
+@media (prefers-color-scheme: dark) {
+    body{
+        background-color: #000000;
+    }
+}
+
 .backImg{
     position: relative;
-    bottom: 0;
-    display: grid;
-    width: 100vw;
+    background-color: F5F5F5;
+    width: 100%;
     height: auto;
     z-index: -5;
     margin: auto;
-    max-width: 60%;
-    overflow: hidden;
-    box-sizing: border-box;
+    box-sizing: content-box;
 }
 
-img, svg{
-    max-width: 100%;
+.backImg > img{
+    width: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+    .backImg{
+        filter: invert(100%);
+    }
 }
 
 .button:hover{
     color: #3D8500;
+}
+@media (prefers-color-scheme: dark) {
+    .button:hover{
+        color: #75FF00;
+    }
 }
 
 #card-label {
@@ -125,7 +138,16 @@ img, svg{
     margin-bottom: 0 !important;
     background-color: rgb(255, 255, 255);
     padding: 1.5rem 1.5rem 0rem 1.5rem;
-    max-width: 60%;
+    max-width: 80%;
+}
+@media (prefers-color-scheme: dark) {
+    #card{
+        margin: auto;
+        margin-bottom: 0 !important;
+        background-color: #000000;
+        padding: 1.5rem 1.5rem 0rem 1.5rem;
+        max-width: 60%;
+    }
 }
 
 #card-header{
@@ -147,12 +169,22 @@ h1{
     text-wrap: balance;
     font-family: "farnham headline", Georgia, serif;
 }
+@media (prefers-color-scheme: dark) {
+    h1{
+        color: #ffffff;
+    }
+}
 h3{
-    color: #212121;
+    color: #3D8500;
     font-size: 1.25rem;
     line-height: 1.5rem;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 500;
+}
+@media (prefers-color-scheme: dark) {
+    h3{
+        color: #75FF00;
+    }
 }
 
 .card-item{
@@ -162,6 +194,14 @@ h3{
 .card-item:not(:last-child){
     border-bottom: solid 2px #F5F5F5;
     padding: 1rem 0;
+}
+@media (prefers-color-scheme: dark) {
+    .card-item:not(:last-child){
+        border-bottom: solid 2px #303030;
+    }
+}
+.card-item:last-child{
+    padding-top: 1rem;
 }
 
 .card-item-btn{
@@ -179,8 +219,27 @@ h3{
     cursor: pointer;
     text-align: left;
 }
+@media (prefers-color-scheme: dark) {
+    .card-item-btn{
+        color: #F5F5F5;
+    }
+}
 
 
+.lightMode {
+    display: block;
+}
+.darkMode {
+    display: none;
+}
+@media (prefers-color-scheme: dark) {
+    .lightMode {
+        display: none;
+    }
+    .darkMode {
+        display: block;
+    }
+}
 
 .icons > img{
     min-width: 30px;
@@ -189,8 +248,19 @@ h3{
 .minus-icon{
     display: none;
 }
+@media (prefers-color-scheme: dark) {
+    .minus-icon{
+        filter: invert(100%);
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .plus-icon {
+        filter: saturate(500%);
+    }
+}
 
-.card-item-description{
+
+.card-item-description {
     font-size: 1rem;
     color: #5d5d5d;
     max-height: 0;
@@ -199,129 +269,75 @@ h3{
     display: flex;
     align-items: top; 
 }
-.cardImage {
-    width: 20%;
-    margin-top: 15px;
+@media (prefers-color-scheme: dark) {
+    .card-item-description{
+        color: #F5F5F5;
+    }
 }
-
-.description{
+.description {
     text-wrap: balance;
-    margin: 10px 0px 0px 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    display: inline-block;
+    width: 80%;
+    max-width: 800px;
 }
 
-
-/* Extra small devices (phones, 600px and down) */
-@media (max-width: 600px) {
-    .cardImage {
-        width: 40%;
-    }
-    .description{
-        width: 60%;
-    }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media (min-width: 600px) {
-    .cardImage {
-        width: 33%;
-    }
-    .description{
-        width: 66%;
-    }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media (min-width: 768px) {
-    .cardImage {
-        width: 30%;
-    }
-    .description{
-        width: 70%;
-    }
-}
-
-/* Medium large devices (landscape tablets, 880px and up) */
-@media (min-width: 880px) {
-    .cardImage {
-        width: 27%;
-    }
-    .description{
-        width: 73%;
-    }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media (min-width: 992px) {
-    .cardImage {
-        width: 25%;
-    }
-    .description{
-        width: 75%;
-    }
+.description > img{
+    width: 40%;
+    max-width: 180px;
+    float: left;
+    padding-right: 25px;
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media (min-width: 1200px) {
-    .cardImage {
-        width: 20%;
-    }
-    .description{
-        width: 80%;
-    }
-}
-
-/* Extra extra large devices (large laptops and desktops, 1400px and up) */
 @media (min-width: 1400px) {
-    .cardImage {
-        width: 14%;
-    }
-    .description{
-        width: 86%;
+    .description > img{
+        max-width: 130px;
     }
 }
-
-/* Extra extra extra large devices (large laptops and desktops, 1600px and up) */
-@media (min-width: 1600px) {
-    .cardImage {
-        width: 10%;
-    }
-    .description{
-        width: 90%;
-    }
-}
-
-
 
 footer{
-    font-size: 13px;
-    text-align: left;
-    font-weight: 600;
-    padding: 1 rem;
-    margin: auto;
-    margin-left: 20%;
-    padding: 1.5rem;
-    max-width: 60%;
-    border-radius: 10px;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: row;
-    align-items: left;
+    position: fixed;
+    background-color: #3D8500;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
 }
 
-footer a{
-    color: hsl(292, 42%, 14%);
+footer > img{
+    height: 80px;
+    float: left;
 }
 
- /* UNUSED
-.backImg{
-    background-image: url(assets/images/Jersey_Sketch4.jpg);
-    background-attachment: fixed;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: relative;
-    display: grid;
-    max-height: 100vh;
-    height: auto;
+ul {
+    list-style-type: none;
+    font-size: 20px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: inline-flex;
+  }
+  
+li {
+    height: 80px;
+    padding: 28px 40px 0px 40px;
 }
-    */
+
+li:hover {
+    height: 80px;
+    background-color: #305312;
+    padding: 28px 40px 0px 40px;
+
+}
+  
+li a {
+    color: white;
+    text-decoration: none;
+  }
+
+.lead {
+    font-weight: 800;
+}
+
+.nav {
+    font-weight: 300;
+}
