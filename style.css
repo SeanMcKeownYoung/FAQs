@@ -312,20 +312,50 @@ footer > img{
 
 ul {
     list-style-type: none;
-    font-size: 20px;
+    font-size: 16px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     display: inline-flex;
   }
+
+  @media (max-width: 800px) {
+    ul {
+        font-size: 14px;
+    }
+}
+@media (max-width: 600px) {
+    ul {
+        font-size: 12px;
+    }
+}
+@media (min-width: 1000px) {
+    ul {
+        font-size: 20px;
+    }
+}
   
 li {
     height: 80px;
     padding: 28px 40px 0px 40px;
 }
+@media (max-width: 800px) {
+    li {
+        padding: 28px 20px 0px 20px;
+    }
+}
+@media (max-width: 600px) {
+    li {
+        padding: 28px 10px 0px 10px;
+    }
+}
+@media (min-width: 1000px) {
+    li {
+        padding: 28px 40px 0px 40px;
+    }
+}
+
 
 li:hover {
-    height: 80px;
     background-color: #305312;
-    padding: 28px 40px 0px 40px;
 
 }
   
@@ -336,6 +366,19 @@ li a {
 
 .lead {
     font-weight: 800;
+    padding-left: 80px;
+}
+@media (max-width: 1000px) {
+    .lead {
+        font-weight: 800;
+        padding-left: 20px;
+    }
+}
+@media (max-width: 500px) {
+    .lead {
+        font-weight: 800;
+        padding-left: 0px;
+    }
 }
 
 .nav {
